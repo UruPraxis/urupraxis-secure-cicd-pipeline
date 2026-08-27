@@ -5,11 +5,11 @@
 ENVIRONMENT = "dev"
 
 [GLOBAL_dev]
-ACCOUNT = "537013495754"  # <-- CORRECTED: Your real AWS Account ID
+ACCOUNT = "111222333444"  # <-- CORRECTED: Your real AWS Account ID
 REGION = "us-east-2"      # <-- CORRECTED: Your real active region (Ohio)
 
 [GLOBAL_prod]
-ACCOUNT = "537013495754"
+ACCOUNT = "111222333444"
 REGION = "us-east-2"
 
 # =========================================================

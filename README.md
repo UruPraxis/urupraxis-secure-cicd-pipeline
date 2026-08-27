@@ -38,7 +38,7 @@ Environment separation and deployment parameters are declared via a decoupled co
 ENVIRONMENT = "dev"
 
 [GLOBAL_dev]
-ACCOUNT = "537013495754"
+ACCOUNT = "111222333444"
 REGION = "us-east-2"
 
 [SOURCE_dev]
