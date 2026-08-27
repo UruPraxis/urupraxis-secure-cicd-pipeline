@@ -1,0 +1,63 @@
+# =========================================================
+# GLOBAL ENVIRONMENT CONFIGURATION
+# =========================================================
+[ENV]
+ENVIRONMENT = "dev"
+
+[GLOBAL_dev]
+ACCOUNT = "537013495754"  # <-- CORRECTED: Your real AWS Account ID
+REGION = "us-east-2"      # <-- CORRECTED: Your real active region (Ohio)
+
+[GLOBAL_prod]
+ACCOUNT = "537013495754"
+REGION = "us-east-2"
+
+# =========================================================
+# NETWORK LAYER CONFIGURATION (VPC)
+# =========================================================
+[VPC_dev]
+VPC_CIDR = "10.10.0.0/16"
+AVAILABILITY_ZONES = ["us-east-2a", "us-east-2b"] # <-- CORRECTED: Matching Ohio AZs
+PUBLIC_SUBNET_CIDR_MASK = 24
+PRIVATE_SUBNET_CIDR_MASK = 24
+ISOLATED_SUBNET_CIDR_MASK = 24
+
+[VPC_prod]
+VPC_CIDR = "10.0.0.0/16"
+AVAILABILITY_ZONES = ["us-east-2a", "us-east-2b", "us-east-2c"]
+PUBLIC_SUBNET_CIDR_MASK = 24
+PRIVATE_SUBNET_CIDR_MASK = 24
+ISOLATED_SUBNET_CIDR_MASK = 24
+
+# =========================================================
+# SOURCE STAGE PARAMETERS (GITHUB)
+# =========================================================
+[SOURCE_dev]
+GITHUB_REPOSITORY = "UruPraxis/sample-app"
+GITHUB_BRANCH = "development"
+
+
+[SOURCE_prod]
+GITHUB_REPOSITORY = "UruPraxis/sample-app"
+GITHUB_BRANCH = "main"
+
+
+# =========================================================
+# BUILD & DEVSECOPS STAGE PARAMETERS
+# =========================================================
+[BUILD_dev]
+COMPUTE_TYPE = "SMALL"
+IMAGE_SCAN_ON_PUSH = true
+
+[BUILD_prod]
+COMPUTE_TYPE = "MEDIUM"
+IMAGE_SCAN_ON_PUSH = true
+
+# =========================================================
+# DEPLOYMENT STAGE PARAMETERS (ECS & CANARY)
+# =========================================================
+[DEPLOY_dev]
+CONTAINER_PORT = 80
+DESIRED_COUNT = 1
+CANARY_TRAFFIC_PERCENT = 10
+CANARY_TRAFFIC_DURATION_MINUTES = 10
